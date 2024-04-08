@@ -22,7 +22,7 @@
                 <td>{{ employee.address }}</td>
                 <td>{{ employee.zipcode }}</td>
                 <td>{{ employee.city }}</td>
-                <td><a href="{{ path('') }}"><button class="btn btn-danger ">verwijderen</button></a> </td>
+                <td><a href="{{ path('delete', {id:employee.id}) }}"><button class="btn btn-danger ">verwijderen</button></a> </td>
             </tr>
         {% endfor %}
 

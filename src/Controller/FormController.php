@@ -23,6 +23,16 @@ class FormController extends AbstractController
         ]);
     }
 
+    #[Route('/delete', name: 'delete')]
+    public function delete(EntityManagerInterface $em, int $id): Response
+    {
+        $employees = $em->getRepository(Employee::class)->find($id);
+        $em->remove($employees);
+        return $this->render('form/index.html.twig', [
+            'employees' => $employees,
+        ]);
+    }
+
 
     #[Route('/form', name: 'insert')]
     public function form(EmployeeRepository $repository, Request $request, EntityManagerInterface $em): Response
